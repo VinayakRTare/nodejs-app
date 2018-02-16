@@ -27,7 +27,7 @@ console.log(process.env.OPENSHIFT_MONGODB_DB_URL);
 console.log(process.env.MONGO_URL);
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8081,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
-    mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL || 'mongodb://localhost/moneyabcsdb',
+    mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
     mongoURLLabel = "";
     console.log("--->>>"+mongoURL);
 console.log("----++"+process.env.DATABASE_SERVICE_NAME);
