@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>moneyABC</title>
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+ 
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	
+	<script>
+	  window.fbAsyncInit = function() {
+		FB.init({
+		  appId      : '271215723210227',
+		  xfbml      : true,
+		  version    : 'v2.5'
+		});
+	  };
+
+	  (function(d, s, id){
+		 var js, fjs = d.getElementsByTagName(s)[0];
+		 if (d.getElementById(id)) {return;}
+		 js = d.createElement(s); js.id = id;
+		 js.src = "//connect.facebook.net/en_US/sdk.js";
+		 fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+	</script>
+
+	<script src="js/bootstrap.js"> </script>
+	<script src="js/app.js"> </script>
+</head>
+<body ng-app="moneyabcs">
+<div class="controller" ng-controller="moneycontroller"> 
+	<table class="table table-striped">
+		<tbody>
+			<tr>
+				<td><input ng-model="site.article"/></td>
+				<td ng-click="add(site)">ADD</td>
+				<td ng-click="getFeaturedArticles()">Click to retrieve data!</td>
+				<td ng-click="getAllData()">Click to retrieve complete data!</td>
+				<td ng-click="getSearchData()">Click to retrieve sample search data!</td>
+				<td ng-click="clearDB()">Clear db</td>
+			</tr>
+			<tr ng-repeat="web in hello">
+				<td>{{web.article}}</td>
+				<td ng-click="remove(web._id)">Delete</td>
+				<td ng-click="showPage($index)">showPage</td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="table table-striped">
+		<tbody>
+			<tr ng-repeat="page in selectedPage">
+				<td ng-show="selectedPage.length > 0">
+				{{page.name}}
+				</td>
+				<td ng-click="deletePage($index)">Delete page</td>
+			</tr>
+		</tbody>
+	</table>
+	<div ng-repeat="obj in article">
+		<a ng-click="fbShare(obj.iframeLink)">share on fb</a>
+	</div>
+	
+	
+</a>
+	
+</div>
+
+</body>
+</html>
